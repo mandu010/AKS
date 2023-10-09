@@ -11,6 +11,6 @@ resource "azurerm_container_registry" "acr" {
 resource "azurerm_role_assignment" "acrpull" {
     scope = azurerm_container_registry.acr.id
     role_definition_name = "Acrpull"
-    principal_id = data.azuread_service_principal.aks_principal.id
+    principal_id = data.azurerm_key_vault_secret.spn_secret.value
     skip_service_principal_aad_check = true
 }
