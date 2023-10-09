@@ -1,3 +1,6 @@
+/*
+  Getting Data from Key Vault
+*/
 data "azurerm_key_vault" "azure_vault" {
   name                = var.keyvault_name
   resource_group_name = var.keyvault_rg
@@ -17,6 +20,15 @@ data "azurerm_key_vault_secret" "spn_secret" {
   key_vault_id = data.azurerm_key_vault.azure_vault.id
 }
 
+/*
+  Creating Resources
+*/
+
+resource "azurerm_resource_group" "aks_rg" {
+  name     = var.resource_group
+  location = var.azure_region
+}
+/*
 resource "azurerm_virtual_network" "aks_vnet" {
   name                = var.aks_vnet_name
   resource_group_name = azurerm_resource_group.aks_rg.name
@@ -29,12 +41,6 @@ resource "azurerm_subnet" "aks_subnet" {
   resource_group_name  = azurerm_resource_group.aks_rg.name
   virtual_network_name = azurerm_virtual_network.aks_vnet.name
   address_prefixes       = var.subnetcidr
-}
-
-
-resource "azurerm_resource_group" "aks_rg" {
-  name     = var.resource_group
-  location = var.azure_region
 }
 
 resource "azurerm_kubernetes_cluster" "aks_cluster" {
@@ -58,10 +64,10 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     }
   }
 
-/*  role_based_access_control {
-    enabled = true
-  }
-*/
+  # role_based_access_control {
+  #   enabled = true
+  # }
+
 
   service_principal {
     client_id     = data.azurerm_key_vault_secret.spn_id.value
@@ -71,4 +77,4 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   tags = {
     Environment = "Demo"
   }
-}
+}*/
