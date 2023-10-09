@@ -32,6 +32,10 @@ resource "azurerm_resource_group" "aks_rg" {
   name     = var.resource_group
   location = var.azure_region
 }
+resource "azurerm_resource_group" "example" {
+  name     = "${var.resource_group}_2"
+  location = var.azure_region
+}
 
 resource "azurerm_virtual_network" "aks_vnet" {
   name                = var.aks_vnet_name
