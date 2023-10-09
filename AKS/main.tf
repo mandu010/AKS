@@ -28,7 +28,7 @@ resource "azurerm_resource_group" "aks_rg" {
   name     = var.resource_group
   location = var.azure_region
 }
-/*
+
 resource "azurerm_virtual_network" "aks_vnet" {
   name                = var.aks_vnet_name
   resource_group_name = azurerm_resource_group.aks_rg.name
@@ -77,4 +77,4 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   tags = {
     Environment = "Demo"
   }
-}*/
+}
