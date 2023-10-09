@@ -39,7 +39,7 @@ resource "azurerm_subnet" "aks_subnet" {
 */
 
 module "resourcegroup" {
-    source =   "./modules/resourcegroup"
+    source =   "../modules/resourcegroup"
     name     = var.resource_group
     location = var.azure_region
   
