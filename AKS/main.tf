@@ -20,9 +20,9 @@ data "azurerm_key_vault_secret" "spn_secret" {
   key_vault_id = data.azurerm_key_vault.azure_vault.id
 }
 
-data "azuread_service_principal" "aks_principal" {
-  application_id = data.azurerm_key_vault_secret.spn_id.value
-}
+# data "azuread_service_principal" "aks_principal" {
+#   application_id = data.azurerm_key_vault_secret.spn_id.value
+# }
 
 /*
   Creating Resources
