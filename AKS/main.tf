@@ -20,6 +20,10 @@ data "azurerm_key_vault_secret" "spn_secret" {
   key_vault_id = data.azurerm_key_vault.azure_vault.id
 }
 
+data "azuread_service_principal" "aks_principal" {
+  application_id = data.azurerm_key_vault_secret.spn_id.value
+}
+
 /*
   Creating Resources
 */
@@ -56,6 +60,7 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     vm_size         = var.agent_pools.vm_size
     os_disk_size_gb = var.agent_pools.os_disk_size_gb
   }
+  
 
   linux_profile {
     admin_username = var.admin_username
@@ -77,4 +82,14 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   tags = {
     Environment = "Demo"
   }
+}
+
+resource "azurerm_container_registry" "acr" {
+
+  name = "manduacr123"
+  resource_group_name = var.resource_group
+  location = var.azure_region
+  sku = "Basic"
+  admin_enabled = true
+  
 }
