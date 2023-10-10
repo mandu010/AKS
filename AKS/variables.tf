@@ -77,3 +77,6 @@ variable "spn-client-secret"{
 variable "spn-tenant-id"{
     type = string
 }
+variable "sshkey"{
+    type = string
+}
