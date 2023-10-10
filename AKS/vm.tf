@@ -8,13 +8,6 @@ output "virtual_network_id" {
   value = data.azurerm_virtual_network.aks_vnet.id
 }
 
-resource "azurerm_subnet" "aks_subnet" {
-  name                 = "internal"
-  resource_group_name  = var.resource_group
-  virtual_network_name = var.aks_vnet_name
-  address_prefixes     = ["10.0.0.0/24"]
-}
-
 resource "azurerm_network_interface" "jenkinsNic" {
   name                = "jenkins-nic"
   location            = var.azure_region
