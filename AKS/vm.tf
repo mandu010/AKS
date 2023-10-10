@@ -1,4 +1,3 @@
-
 data "azurerm_virtual_network" "aks_vnet" {
   name                = var.aks_vnet_name
   resource_group_name = var.resource_group
@@ -6,6 +5,14 @@ data "azurerm_virtual_network" "aks_vnet" {
 
 output "virtual_network_id" {
   value = data.azurerm_virtual_network.aks_vnet.id
+}
+
+resource "azurerm_public_ip" "jenkinsPublic" {
+  name                = "jenkinspublicip"
+  resource_group_name = var.resource_group
+  location            = var.azure_region
+  allocation_method   = "Dynamic"
+
 }
 
 resource "azurerm_network_interface" "jenkinsNic" {
