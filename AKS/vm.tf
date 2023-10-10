@@ -27,6 +27,25 @@ resource "azurerm_network_interface" "jenkinsNic" {
   }
 }
 
+resource "azurerm_network_security_group" "jenkins_nsg" {
+  name                = "acceptanceTestSecurityGroup1"
+  location            = var.azure_region
+  resource_group_name = var.resource_group
+
+  security_rule {
+    name                       = "jenkinsnsg"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+}
+
 resource "azurerm_linux_virtual_machine" "jenkins" {
   name                = "jenkins-machine"
   resource_group_name = var.resource_group
