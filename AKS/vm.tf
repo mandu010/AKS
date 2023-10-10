@@ -28,7 +28,7 @@ resource "azurerm_network_interface" "jenkinsNic" {
 }
 
 resource "azurerm_network_security_group" "jenkins_nsg" {
-  name                = "acceptanceTestSecurityGroup1"
+  name                = "jenkinsnetworkgroup"
   location            = var.azure_region
   resource_group_name = var.resource_group
 
