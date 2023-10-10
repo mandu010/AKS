@@ -68,8 +68,8 @@ resource "azurerm_linux_virtual_machine" "jenkins" {
 
   source_image_reference {
     publisher = "Canonical"
-    offer     = "Ubuntu2204"
-    sku       = "22_04-lts-gen2"
+    offer     = "UbuntuServer"
+    sku       = "18.04-LTS"
     version   = "latest"
   }
 }
