@@ -24,6 +24,7 @@ resource "azurerm_network_interface" "jenkinsNic" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.aks_subnet.id
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.jenkinsPublic.id
   }
 }
 
