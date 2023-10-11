@@ -47,6 +47,11 @@ resource "azurerm_network_security_group" "jenkins_nsg" {
 
 }
 
+resource "azurerm_network_interface_security_group_association" "example" {
+  network_interface_id      = azurerm_network_interface.jenkinsNic.id
+  network_security_group_id = azurerm_network_security_group.jenkins_nsg.id
+}
+
 resource "azurerm_linux_virtual_machine" "jenkins" {
   name                = "jenkins-machine"
   resource_group_name = var.resource_group
