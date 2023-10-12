@@ -1,11 +1,4 @@
-data "azurerm_virtual_network" "aks_vnet" {
-  name                = var.aks_vnet_name
-  resource_group_name = var.resource_group
-}
 
-output "virtual_network_id" {
-  value = data.azurerm_virtual_network.aks_vnet.id
-}
 
 resource "azurerm_public_ip" "jenkinsPublic" {
   name                = "jenkinspublicip"
@@ -50,6 +43,15 @@ resource "azurerm_network_security_group" "jenkins_nsg" {
 resource "azurerm_network_interface_security_group_association" "example" {
   network_interface_id      = azurerm_network_interface.jenkinsNic.id
   network_security_group_id = azurerm_network_security_group.jenkins_nsg.id
+}
+
+data "azurerm_virtual_network" "aks_vnet" {
+  name                = var.aks_vnet_name
+  resource_group_name = var.resource_group
+}
+
+output "virtual_network_id" {
+  value = data.azurerm_virtual_network.aks_vnet.id
 }
 
 resource "azurerm_linux_virtual_machine" "jenkins" {
