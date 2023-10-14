@@ -1,3 +1,4 @@
+#!/bin/bash
 #### Jenkins Maven Kubectl Helm Docker Setup for Ubuntu ###
 
 
