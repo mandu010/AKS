@@ -8,9 +8,8 @@ pipeline {
         stage('Build maven ') {
             steps { 
                     sh 'pwd'      
-                    sh 'ls -ltr'      
-                    sh 'cd ./register-app'      
-                    sh 'mvn  clean install package'
+                    sh 'ls -ltr'          
+                    sh 'mvn clean install package'
             }
         }
         
