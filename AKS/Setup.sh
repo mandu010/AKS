@@ -7,6 +7,8 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 sudo mv kubectl /usr/bin/
 sudo chmod +x /usr/bin/kubectl
 echo "Run command on AZ: az aks get-credentials --resource-group=akscluster-rg --name=akscluster"
+echo "Setting kubectl alias"
+alias k="kubectl"
 
 ### Downloading and Installing Helm
 wget https://get.helm.sh/helm-v3.13.0-linux-amd64.tar.gz
