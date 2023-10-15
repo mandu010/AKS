@@ -9,7 +9,8 @@ pipeline {
             steps { 
                     sh 'pwd'      
                     sh 'ls -ltr'      
-                    sh './register-app/mvn  clean install package'
+                    sh 'cd ./register-app'      
+                    sh 'mvn  clean install package'
             }
         }
         
