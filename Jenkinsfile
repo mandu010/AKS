@@ -23,7 +23,7 @@ pipeline {
         stage('Build docker image') {
            steps {
                script {         
-                 def customImage = docker.build('mandu/petclinic', "./register-app")
+                 def customImage = docker.build('mandu/petclinic', ".")
                  docker.withRegistry('https://manduacr123.azurecr.io', 'acr-demo') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }                     
