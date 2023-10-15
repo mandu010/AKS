@@ -16,10 +16,11 @@ sudo chmod +x /usr/bin/helm
 helm repo add stable https://charts.helm.sh/stable ### Adding stable helm repo 
 
 ### Cleanup
-rm -rf *.gz *amd*
+sudo rm -rf *.gz *amd*
 
 ### Installing Java
 echo "Installing & Configuring Java now"
+#sudo apt install openjdk-11-jre -y
 wget https://download.java.net/java/GA/jdk13.0.1/cec27d702aa74d5a8630c65ae61e4305/9/GPL/openjdk-13.0.1_linux-x64_bin.tar.gz
 tar -xvf openjdk-13.0.1_linux-x64_bin.tar.gz
 sudo mv jdk-13.0.1 /opt/
@@ -39,7 +40,7 @@ echo "Jenkins Initial Password is:" && sudo cat /var/lib/jenkins/secrets/initial
 echo "Add Jenkins profile to Sudoers file"
 
 ### Downloading and Installing Maven
-rm -rf *.gz *amd*
+sudo rm -rf *.gz *amd*
 wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 tar -xvf *tar.gz
 sudo mv apache-maven-3.6.3 /opt/

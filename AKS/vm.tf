@@ -55,7 +55,7 @@ output "virtual_network_id" {
 }
 
 resource "azurerm_linux_virtual_machine" "jenkins" {
-  name                = "jenkins-machine"
+  name                = "jenkins-machine2"
   resource_group_name = var.resource_group
   location            = var.azure_region
   size                = "Standard_F2"
