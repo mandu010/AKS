@@ -10,7 +10,7 @@ pipeline {
                     sh 'pwd'      
                     sh 'ls -ltr'          
                     sh 'hostname'          
-                    sh 'echo "test 3"'          
+                    sh 'echo "test 4"'          
                     sh 'mvn clean install package'
             }
         }
