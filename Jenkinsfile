@@ -9,6 +9,7 @@ pipeline {
             steps { 
                     sh 'pwd'      
                     sh 'ls -ltr'          
+                    sh 'hostname'          
                     sh 'mvn clean install package'
             }
         }
