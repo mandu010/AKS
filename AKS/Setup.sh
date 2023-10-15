@@ -4,15 +4,15 @@
 
 ### Downloading and Installing Kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-mv kubectl /usr/bin/
-chmod +x /usr/bin/kubectl
+sudo mv kubectl /usr/bin/
+sudo chmod +x /usr/bin/kubectl
 echo "Run command on AZ: az aks get-credentials --resource-group=akscluster-rg --name=akscluster"
 
 ### Downloading and Installing Helm
 wget https://get.helm.sh/helm-v3.13.0-linux-amd64.tar.gz
 tar -zxvf helm-v3.13.0-linux-amd64.tar.gz
-mv linux-amd64/helm /usr/bin/
-chmod +x /usr/bin/helm
+sudo mv linux-amd64/helm /usr/bin/
+sudo chmod +x /usr/bin/helm
 helm repo add stable https://charts.helm.sh/stable ### Adding stable helm repo 
 
 ### Cleanup
@@ -22,7 +22,7 @@ rm -rf *.gz *amd*
 echo "Installing & Configuring Java now"
 wget https://download.java.net/java/GA/jdk13.0.1/cec27d702aa74d5a8630c65ae61e4305/9/GPL/openjdk-13.0.1_linux-x64_bin.tar.gz
 tar -xvf openjdk-13.0.1_linux-x64_bin.tar.gz
-mv jdk-13.0.1 /opt/
+sudo mv jdk-13.0.1 /opt/
 JAVA_HOME='/opt/jdk-13.0.1'
 PATH="$JAVA_HOME/bin:$PATH"
 export PATH
@@ -42,12 +42,12 @@ echo "Add Jenkins profile to Sudoers file"
 rm -rf *.gz *amd*
 wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 tar -xvf *tar.gz
-mv apache-maven-3.6.3 /opt/
+sudo mv apache-maven-3.6.3 /opt/
 M2_HOME='/opt/apache-maven-3.6.3'
 PATH="$M2_HOME/bin:$PATH"
 export PATH
 echo "Verifying Maven Installation"
-mvn -version
+sudo mvn -version
 rm -rf *.gz *amd*
 
 ### Downloading and Installation Docker
