@@ -48,19 +48,19 @@ resource "azurerm_resource_group" "aks_rg" {
   location = var.azure_region
 }
 
-# resource "azurerm_kubernetes_cluster" "aks_cluster" {
-#   name                = var.cluster_name
-#   location            = azurerm_resource_group.aks_rg.location
-#   resource_group_name = azurerm_resource_group.aks_rg.name
-#   dns_prefix          = var.dns_name
+resource "azurerm_kubernetes_cluster" "aks_cluster" {
+  name                = var.cluster_name
+  location            = azurerm_resource_group.aks_rg.location
+  resource_group_name = azurerm_resource_group.aks_rg.name
+  dns_prefix          = var.dns_name
 
 
-#   default_node_pool {
-#     name            = var.agent_pools.name
-#     node_count      = var.agent_pools.count
-#     vm_size         = var.agent_pools.vm_size
-#     os_disk_size_gb = var.agent_pools.os_disk_size_gb
-#   }
+  default_node_pool {
+    name            = var.agent_pools.name
+    node_count      = var.agent_pools.count
+    vm_size         = var.agent_pools.vm_size
+    os_disk_size_gb = var.agent_pools.os_disk_size_gb
+  }
   
 
 #   linux_profile {
