@@ -9,6 +9,8 @@ pipeline {
             steps { 
                     sh 'pwd'      
                     sh 'ls -ltr'          
+                    sh 'hostname'          
+                    sh 'echo "test 6"'          
                     sh 'mvn clean install package'
             }
         }
@@ -23,7 +25,7 @@ pipeline {
         stage('Build docker image') {
            steps {
                script {         
-                 def customImage = docker.build('mandu/petclinic', ".")
+                 def customImage = docker.build('registration-app2', ".")
                  docker.withRegistry('https://manduacr123.azurecr.io', 'acr-demo') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }                     
