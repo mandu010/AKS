@@ -66,7 +66,8 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   linux_profile {
     admin_username = var.admin_username
     ssh_key {
-      key_data = data.azurerm_key_vault_secret.ssh_public_key.value
+      # key_data = data.azurerm_key_vault_secret.ssh_public_key.value
+      key_data = var.sshkey
     }
   }
 
@@ -76,8 +77,10 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
 
 
   service_principal {
-    client_id     = data.azurerm_key_vault_secret.spn_id.value
-    client_secret = data.azurerm_key_vault_secret.spn_secret.value
+    # client_id     = data.azurerm_key_vault_secret.spn_id.value
+    # client_secret = data.azurerm_key_vault_secret.spn_secret.value
+    client_id     = var.spn-client-id
+    client_secret = var.spn-client-secret
   }
 
   tags = {
