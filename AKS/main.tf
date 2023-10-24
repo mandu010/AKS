@@ -1,28 +1,28 @@
-/*
-  Getting Data from Key Vault
-*/
-data "azurerm_key_vault" "azure_vault" {
-  name                = var.keyvault_name
-  resource_group_name = var.keyvault_rg
-}
+# /*
+#   Getting Data from Key Vault
+# */
+# data "azurerm_key_vault" "azure_vault" {
+#   name                = var.keyvault_name
+#   resource_group_name = var.keyvault_rg
+# }
 
-data "azurerm_key_vault_secret" "ssh_public_key" {
-  name         = var.sshkvsecret
-  key_vault_id = data.azurerm_key_vault.azure_vault.id
-}
+# data "azurerm_key_vault_secret" "ssh_public_key" {
+#   name         = var.sshkvsecret
+#   key_vault_id = data.azurerm_key_vault.azure_vault.id
+# }
 
-data "azurerm_key_vault_secret" "spn_id" {
-  name         = var.clientidkvsecret
-  key_vault_id = data.azurerm_key_vault.azure_vault.id
-}
-data "azurerm_key_vault_secret" "spn_secret" {
-  name         = var.spnkvsecret
-  key_vault_id = data.azurerm_key_vault.azure_vault.id
-}
+# data "azurerm_key_vault_secret" "spn_id" {
+#   name         = var.clientidkvsecret
+#   key_vault_id = data.azurerm_key_vault.azure_vault.id
+# }
+# data "azurerm_key_vault_secret" "spn_secret" {
+#   name         = var.spnkvsecret
+#   key_vault_id = data.azurerm_key_vault.azure_vault.id
+# }
 
-data "azuread_service_principal" "aks_principal" {
-  application_id = data.azurerm_key_vault_secret.spn_id.value
-}
+# data "azuread_service_principal" "aks_principal" {
+#   application_id = data.azurerm_key_vault_secret.spn_id.value
+# }
 
 /*
   Creating Resources
