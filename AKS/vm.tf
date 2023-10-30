@@ -59,8 +59,8 @@ resource "azurerm_linux_virtual_machine" "jenkins" {
   resource_group_name = var.resource_group
   location            = var.azure_region
   # size                = "Standard_F2"
-  size                = "Standard_F2"
-  admin_username      = "adminuser"
+  size           = "Standard_F2"
+  admin_username = "adminuser"
   network_interface_ids = [
     azurerm_network_interface.jenkinsNic.id,
   ]

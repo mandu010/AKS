@@ -1,82 +1,82 @@
 variable "aks_vnet_name" {
-    type = string
+  type = string
 }
 
 variable "keyvault_rg" {
-  type    = string
+  type = string
 }
 variable "keyvault_name" {
-  type    = string
+  type = string
 }
 
 variable "sshkvsecret" {
-  type    = string
+  type = string
 }
 
 variable "clientidkvsecret" {
-  type    = string
+  type = string
 }
 
 variable "vnetcidr" {
-  type    = list
+  type = list(any)
 }
 
 variable "subnetcidr" {
-  type    = list
+  type = list(any)
 }
 
 variable "spnkvsecret" {
-  type    = string
+  type = string
 }
 
 variable "azure_region" {
-  type    = string
+  type = string
 }
 
 #  Resource Group Name
 variable "resource_group" {
-  type    = string
+  type = string
 }
 
 # AKS Cluster name
 variable "cluster_name" {
-  type    = string
+  type = string
 }
 
 #AKS DNS name
 variable "dns_name" {
-  type    = string
+  type = string
 }
 
 variable "admin_username" {
-  type    = string
+  type = string
 }
 
 # Specify a valid kubernetes version
 variable "kubernetes_version" {
-  type    = string
+  type = string
 }
 
 #AKS Agent pools
 variable "agent_pools" {
   type = object({
-      name            = string
-      count           = number
-      vm_size         = string
-      os_disk_size_gb = string
+    name            = string
+    count           = number
+    vm_size         = string
+    os_disk_size_gb = string
     }
   )
 }
 
-variable "spn-client-id"{
-    type = string
+variable "spn-client-id" {
+  type = string
 }
-variable "spn-client-secret"{
-    type = string
+variable "spn-client-secret" {
+  type = string
 }
-variable "spn-tenant-id"{
-    type = string
+variable "spn-tenant-id" {
+  type = string
 }
-variable "sshkey"{
-    type = string
+variable "sshkey" {
+  type = string
 }

@@ -34,13 +34,13 @@ resource "azurerm_virtual_network" "aks_vnet" {
   resource_group_name = azurerm_resource_group.aks_rg.name
   location            = azurerm_resource_group.aks_rg.location
   address_space       = var.vnetcidr
-} 
+}
 
 resource "azurerm_subnet" "aks_subnet" {
   name                 = "aks_subnet"
   resource_group_name  = azurerm_resource_group.aks_rg.name
   virtual_network_name = azurerm_virtual_network.aks_vnet.name
-  address_prefixes       = var.subnetcidr
+  address_prefixes     = var.subnetcidr
 }
 
 resource "azurerm_resource_group" "aks_rg" {
@@ -62,7 +62,7 @@ resource "azurerm_resource_group" "aks_rg" {
 #     vm_size         = var.agent_pools.vm_size
 #     os_disk_size_gb = var.agent_pools.os_disk_size_gb
 #   }
-  
+
 
 #   linux_profile {
 #     admin_username = var.admin_username

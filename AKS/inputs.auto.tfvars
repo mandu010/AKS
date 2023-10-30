@@ -27,8 +27,8 @@ admin_username = "aksuser"
 kubernetes_version = "1.21.7"
 
 agent_pools = {
-      name            = "pool1"
-      count           = 1
-      vm_size         = "Standard_D2_v2"
-      os_disk_size_gb = "30"
-    }
+  name            = "pool1"
+  count           = 1
+  vm_size         = "Standard_D2_v2"
+  os_disk_size_gb = "30"
+}
