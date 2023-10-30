@@ -57,12 +57,12 @@ resource "azurerm_network_security_group" "testnsg" {
 
 }
 
-resource "azurerm_network_interface_security_group_association" "example" {
+resource "azurerm_network_interface_security_group_association" "test" {
   network_interface_id      = azurerm_network_interface.testNic1.id
   network_security_group_id = azurerm_network_security_group.testnsg.id
 }
 
-data "azurerm_virtual_network" "aks_vnet" {
+data "azurerm_virtual_network" "testvnet" {
   name                = "testvnet1"
   resource_group_name = "testrg2"
 }
