@@ -54,7 +54,7 @@ resource "azurerm_linux_virtual_machine" "testvm" {
   size           = "Standard_B1ls"
   admin_username = "adminuser"
   network_interface_ids = [
-    azurerm_network_interface.jenkinsNic.id,
+    azurerm_network_interface.testNic1.id,
   ]
 
   admin_ssh_key {
