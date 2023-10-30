@@ -48,6 +48,11 @@ resource "azurerm_resource_group" "aks_rg" {
   location = var.azure_region
 }
 
+resource "azurerm_resource_group" "testrg2" {
+  name     = "testrg2"
+  location = var.azure_region
+}
+
 # K8s 
 # resource "azurerm_kubernetes_cluster" "aks_cluster" {
 #   name                = var.cluster_name

@@ -1,7 +1,3 @@
-resource "azurerm_resource_group" "testrg2" {
-  name     = "testrg2"
-  location = var.azure_region
-}
 
 resource "azurerm_virtual_network" "testvnet1" { #Virtual network
   name                = "testvnet1"
