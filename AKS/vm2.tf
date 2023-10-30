@@ -1,21 +1,7 @@
 
-resource "azurerm_virtual_network" "testvnet1" { #Virtual network
-  name                = "testvnet1"
-  resource_group_name = "testrg2"
-  location            = var.azure_region
-  address_space       = ["20.0.0.0/24"]
-}
-
-resource "azurerm_subnet" "testsubnet" {
-  name                 = "testsubnet"
-  resource_group_name  = "testrg2"
-  virtual_network_name = "testvnet1"
-  address_prefixes     = ["20.0.0.0/25"]
-}
-
 resource "azurerm_public_ip" "testPublic1" {
   name                = "testPublic1"
-  resource_group_name = var.resource_group
+  resource_group_name = "testrg2"
   location            = var.azure_region
   allocation_method   = "Dynamic"
 
@@ -37,7 +23,7 @@ resource "azurerm_network_interface" "testNic1" { #NIC
 resource "azurerm_network_security_group" "testnsg" {
   name                = "testnsg"
   location            = var.azure_region
-  resource_group_name = var.resource_group
+  resource_group_name = "testrg2"
 
   security_rule {
     name                       = "testnsg"
@@ -65,7 +51,7 @@ resource "azurerm_linux_virtual_machine" "testvm" {
   resource_group_name = "testrg2"
   location            = var.azure_region
   # size                = "Standard_F2"
-  size           = "Standard_B1"
+  size           = "Standard_B1ls"
   admin_username = "adminuser"
   network_interface_ids = [
     azurerm_network_interface.jenkinsNic.id,
