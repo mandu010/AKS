@@ -51,24 +51,24 @@ resource "azurerm_resource_group" "aks_rg" {
 /*
   THIS BLOCK IS FOR TEST VM 
 */
-resource "azurerm_resource_group" "testrg2" {
-  name     = "testrg2"
-  location = var.azure_region
-}
+# resource "azurerm_resource_group" "testrg2" {
+#   name     = "testrg2"
+#   location = var.azure_region
+# }
 
-resource "azurerm_virtual_network" "testvnet1" { #Virtual network
-  name                = "testvnet1"
-  resource_group_name = "testrg2"
-  location            = var.azure_region
-  address_space       = ["20.0.0.0/24"]
-}
+# resource "azurerm_virtual_network" "testvnet1" { #Virtual network
+#   name                = "testvnet1"
+#   resource_group_name = "testrg2"
+#   location            = var.azure_region
+#   address_space       = ["20.0.0.0/24"]
+# }
 
-resource "azurerm_subnet" "testsubnet" {
-  name                 = "testsubnet"
-  resource_group_name  = "testrg2"
-  virtual_network_name = "testvnet1"
-  address_prefixes     = ["20.0.0.0/25"]
-}
+# resource "azurerm_subnet" "testsubnet" {
+#   name                 = "testsubnet"
+#   resource_group_name  = "testrg2"
+#   virtual_network_name = "testvnet1"
+#   address_prefixes     = ["20.0.0.0/25"]
+# }
 
 /*
   END OF BLOCK  FOR TEST VM 
