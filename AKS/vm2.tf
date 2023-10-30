@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "testrg2" {
   location = var.azure_region
 }
 
-resource "azurerm_virtual_network" "testvnet1" {
+resource "azurerm_virtual_network" "testvnet1" { #Virtual network
   name                = "testvnet1"
   resource_group_name = "testrg2"
   location            = var.azure_region
@@ -25,7 +25,7 @@ resource "azurerm_public_ip" "testPublic1" {
 
 }
 
-resource "azurerm_network_interface" "testNic1" {
+resource "azurerm_network_interface" "testNic1" { #NIC
   name                = "testNic1"
   location            = var.azure_region
   resource_group_name = "testrg2"
@@ -62,10 +62,6 @@ resource "azurerm_network_interface_security_group_association" "test" {
   network_security_group_id = azurerm_network_security_group.testnsg.id
 }
 
-data "azurerm_virtual_network" "testvnet" {
-  name                = "testvnet1"
-  resource_group_name = "testrg2"
-}
 
 
 resource "azurerm_linux_virtual_machine" "testvm" {
