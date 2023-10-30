@@ -5,8 +5,8 @@ resource "azurerm_resource_group" "testrg2" {
 
 resource "azurerm_virtual_network" "testvnet1" {
   name                = "testvnet1"
-  resource_group_name = testrg2
-  location            = azurerm_resource_group.aks_rg.location
+  resource_group_name = "testrg2"
+  location            = var.azure_region
   address_space       = ["20.0.0.0/24"]
 }
 
@@ -28,7 +28,7 @@ resource "azurerm_public_ip" "testPublic1" {
 resource "azurerm_network_interface" "testNic1" {
   name                = "testNic1"
   location            = var.azure_region
-  resource_group_name = var.resource_group
+  resource_group_name = "testrg2"
 
   ip_configuration {
     name                          = "internal"
